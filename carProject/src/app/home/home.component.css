@@ -1,0 +1,77 @@
+
+.container {
+    height: 800px;
+    width: 100%;
+    position: relative;
+}
+
+.imageWrapper {
+    position: absolute;
+    width: 100%;
+    height: 790px;
+    z-index: 0;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    opacity: 0.7;
+}
+
+.message {
+    position: absolute;
+    z-index: 1;
+    padding: 20px 20px 0px 20px;
+    border-bottom: 4px solid rgb(0, 0, 0);
+    border-top: 4px solid rgb(0, 0, 0);
+    top: 50px;
+    right: 350px;
+}
+
+.message h1{
+color: rgb(0, 0, 0);
+font-size: 50px;
+font-family: "Oswald", sans-serif;
+
+}
+
+.firstLine {
+    position: absolute;
+    width: 600px;
+    left: 70px;
+    top:145px;
+    height: 4px;
+    background-color: black;
+}
+
+.secondLine {
+    position: absolute;
+    width: 500px;
+    left: 120px;
+    top:130px;
+    height: 4px;
+    background-color: black;
+}
+
+.thirdLine {
+    position: absolute;
+    width: 500px;
+    left: 120px;
+    top: 55px;
+    height: 4px;
+    background-color: black;
+}
+
+.fourthLine {
+    position: absolute;
+    width: 600px;
+    left: 70px;
+    top: 30px;
+    height: 4px;
+    background-color: black;
+}
+
+.whiteOnHover:hover {
+    color: white;
+    cursor: context-menu;
+}
