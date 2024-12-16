@@ -1,0 +1,70 @@
+
+.container {
+    height: 800px;
+    width: 100%;
+    position: relative;
+}
+
+.imageWrapper {
+    position: absolute;
+    width: 100%;
+    height: 790px;
+    z-index: 0;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    opacity: 0.7;
+}
+
+.errorContainer {
+    position: absolute;
+    border: 3.5px solid orange;
+    border-radius: 30px;
+    background-color: black;
+    color: white;
+    width: 500px;
+    height: 400px;
+    left: 35%;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 180px;
+    flex-wrap: wrap;
+}
+
+.errorMsg {
+    position: absolute;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 80px;
+}
+
+ p {
+    font-size: 150px;
+    color: rgb(234, 196, 128);
+}
+
+button {
+    padding: 13px 75px;
+    font-size: 24px;
+    font-weight: bold;
+    border: 2px solid orange;
+    background-color: orange;
+    opacity: 0.7;
+}
+
+button:hover {
+    background-color: rgb(247, 187, 76);
+}
+
+h1 {
+    font-weight: bold;
+    color: orange;
+    font-size: 42px;
+    opacity: 0.7;
+}
