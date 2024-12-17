@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+}
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 900px;
+    background-image: url('../../../../public/wallpaper.jpg');
+    background-size: contain;
+    overflow: scroll;
+
+}
+
+.car-list {
+    position: absolute;
+    width: 70%;
+    margin-top: 20px;
+    margin-left: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+
+}
+
+.list-item {
+    width: 400px;
+    border: 3px solid orange;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    
+}
+
+.car-brand {
+    border-bottom: 3px solid orange;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    background-color: black;
+    color: orange;
+}
+
+.carInfo {
+    background-color: blanchedalmond;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 10px;
+    
+}
+
+.car-model, .car-date, .car-owner, .car-year {
+    flex: 0 0 calc(50% - 20px);
+    text-align: center;
+} 
