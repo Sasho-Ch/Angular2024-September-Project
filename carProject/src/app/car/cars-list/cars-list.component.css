@@ -56,7 +56,12 @@
     
 }
 
-.car-model, .car-date, .car-owner, .car-year {
+ .car-date, .car-owner {
     flex: 0 0 calc(50% - 20px);
     text-align: center;
 } 
+
+.car-model, .car-year, .car-colour {
+    flex: 0 0 calc(33.3% - 20px);
+    text-align: center;
+}
