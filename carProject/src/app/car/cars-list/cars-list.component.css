@@ -65,3 +65,7 @@
     flex: 0 0 calc(33.3% - 20px);
     text-align: center;
 }
+
+.carInfo:hover {
+    background-color: rgb(206, 177, 132);
+}

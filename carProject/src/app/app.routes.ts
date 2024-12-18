@@ -6,6 +6,7 @@ import { LoginComponent } from './user/login/login.component';
 import { ErrorComponent } from './error/error.component';
 import { CarsListComponent } from './car/cars-list/cars-list.component';
 import { AddCarComponent } from './car/add-car/add-car.component';
+import { AboutComponent } from './about/about.component';
 
 export const routes: Routes = [
     {path: '',redirectTo:'/home' , pathMatch: 'full'},
@@ -15,6 +16,7 @@ export const routes: Routes = [
     {path: 'profile', component: ProfileComponent},
     {path: 'gallery', component: CarsListComponent},
     {path: 'add-car', component: AddCarComponent},
+    {path: 'about', component: AboutComponent},
     {path: 'error', component: ErrorComponent},
     {path: '**', redirectTo: '/error'},
 ];
