@@ -8,7 +8,7 @@
           <p class="car-model">Model:<br />{{ car.carModel }}</p>
           <p class="car-colour">Colour:<br />{{ car.carColor }}</p>
           <p class="car-year">Year:<br />{{ car.carYear }}</p>
-          <p class="car-date">Published on:<br />{{ car.created_at }}</p>
+          <p class="car-date">Published on:<br />{{ car.created_at | date : "yyyy-mm-dd"}}</p>
           <p class="car-owner">Owner:<br />{{car.userId.username}}</p>
         </div>
       </a>
