@@ -1,41 +1,18 @@
 <div class="container">
   <div class="car-list">
+    @for (car of cars; track $index) {
     <div class="list-item">
-        <a routerLink="/current-car">
-        <div class="car-brand">Car brand</div>
+      <a routerLink="/current-car">
+        <div class="car-brand">{{ car.carBrand }}</div>
         <div class="carInfo">
-          <p class="car-model">Model:<br />Model</p>
-          <p class="car-colour">Colour:<br />Colour</p>
-          <p class="car-year">Year:<br />year</p>
-          <p class="car-date">Published on:<br />Date</p>
-          <p class="car-owner">Owner:<br />Username</p>
+          <p class="car-model">Model:<br />{{ car.carModel }}</p>
+          <p class="car-colour">Colour:<br />{{ car.carColor }}</p>
+          <p class="car-year">Year:<br />{{ car.carYear }}</p>
+          <p class="car-date">Published on:<br />{{ car.created_at }}</p>
+          <p class="car-owner">Owner:<br />{{car.userId.username}}</p>
         </div>
-    </a>
-      </div>
-      <div class="list-item">
-        <a routerLink="/current-car">
-        <div class="car-brand">Car brand</div>
-        <div class="carInfo">
-          <p class="car-model">Model:<br />Model</p>
-          <p class="car-colour">Colour:<br />Colour</p>
-          <p class="car-year">Year:<br />year</p>
-          <p class="car-date">Published on:<br />Date</p>
-          <p class="car-owner">Owner:<br />Username</p>
-        </div>
-    </a>
-      </div>
-      <div class="list-item">
-        <a routerLink="/current-car">
-        <div class="car-brand">Car brand</div>
-        <div class="carInfo">
-          <p class="car-model">Model:<br />Model</p>
-          <p class="car-colour">Colour:<br />Colour</p>
-          <p class="car-year">Year:<br />year</p>
-          <p class="car-date">Published on:<br />Date</p>
-          <p class="car-owner">Owner:<br />Username</p>
-        </div>
-    </a>
-      </div>
- 
-  </div>
+      </a>
+    </div>
+  }
+</div>
 </div>

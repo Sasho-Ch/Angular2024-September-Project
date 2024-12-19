@@ -10,5 +10,5 @@ import { ApiService } from '../../api.service';
   styleUrl: './current-car.component.css'
 })
 export class CurrentCarComponent{
-
+  
 }
