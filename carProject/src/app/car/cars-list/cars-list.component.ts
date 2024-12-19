@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Router } from 'express';
+import { ApiService } from '../../api.service';
 
 @Component({
   selector: 'app-cars-list',
@@ -10,5 +10,8 @@ import { Router } from 'express';
   styleUrl: './cars-list.component.css'
 })
 export class CarsListComponent {
+  constructor( private apiService: ApiService ) {}
 
+  
+  
 }

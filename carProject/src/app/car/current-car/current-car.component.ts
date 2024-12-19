@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ApiService } from '../../api.service';
 
 @Component({
   selector: 'app-current-car',
@@ -8,6 +9,6 @@ import { RouterLink } from '@angular/router';
   templateUrl: './current-car.component.html',
   styleUrl: './current-car.component.css'
 })
-export class CurrentCarComponent {
+export class CurrentCarComponent{
 
 }
