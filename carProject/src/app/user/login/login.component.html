@@ -14,16 +14,30 @@
         </label>
         <input
         type="email"
-        name="email"
-        id="email"
-        placeholder="john.doe@gmail.com"
-        ngModel
-        #inputEmail="ngModel"
-        required
+          name="email"
+          id="email"
+          placeholder="john.doe@gmail.com"
+          ngModel
+          #inputEmail="ngModel"
+          required
+          [appEmail]="domains"
+        [class]="(
+          (inputEmail?.touched && inputEmail?.errors?.['required']) ||
+          (inputEmail?.touched && inputEmail?.errors?.['emailValidator']))
+          ? 'input-error' : '' "
         />
+        @if(inputEmail?.touched) {
+          <div>
+            @if(inputEmail.errors?.['required']) {
+            <p class="error">Email is required!</p>
+            } @if(inputEmail.errors?.['emailValidator']) {
+            <p class="error">Email is not valid!</p>
+            }
+          </div>
+          }
       </p>
       <p class="field">
-        <label for="email">
+        <label for="password">
           <span>
             <i class="fas fa-lock"></i>
           </span>
@@ -37,9 +51,23 @@
         #inputPassword="ngModel"
         minlength="5"
         required
+        [class]="(
+            (inputPassword?.touched && inputPassword?.errors?.['required']) ||
+            (inputPassword?.touched && inputPassword?.errors?.['minlength']))
+            ? 'input-error' : '' "
         />
+        @if(inputPassword?.touched) {
+          <div>
+            @if(inputPassword.errors?.['required']) {
+            <p class="error">Password is required!</p>
+            } @if(inputPassword.errors?.['minlength']) {
+            <p class="error">Password must be at least 5 characters!</p>
+            }
+          </div>
+          }
       </p>
-      <button>Login</button>
+      <button [disabled]="form.invalid"
+      [style]="{backgroundColor: form.invalid ? 'grey' : 'orange'}">Login</button>
       <p class="text">Don't have an account? <a routerLink="/register">Register</a></p>
     </fieldset>
   </form>

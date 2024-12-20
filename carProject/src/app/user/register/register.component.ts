@@ -26,6 +26,7 @@ export class RegisterComponent {
     ]),
     email: new FormControl('', [Validators.required, emailValidator(DOMAINS)]),
     tel: new FormControl(''),
+
     password: new FormControl('', [
       Validators.required,
       Validators.minLength(5),
@@ -68,8 +69,7 @@ export class RegisterComponent {
       username,
       email,
       tel,
-      password,
-      rePassword,
+      password, rePassword,
     } = this.form.value;
     this.userService
       .register(username!, email!, tel!, password!, rePassword!)
