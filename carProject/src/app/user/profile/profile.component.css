@@ -96,3 +96,31 @@ button:hover {
 
 
 
+.editInfoGroup {
+    font-size: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.editInfoGroup i {
+    flex: 0 0 10%;
+
+}
+
+.editInfoGroup p {
+    flex: 0 0 70%;
+    font-weight: bold;
+    color: orange;
+}
+
+.editInfoGroup input {
+    width: 80%;
+    height: 30px;
+}
+
+.red-button {
+    margin-top: 70px;
+}

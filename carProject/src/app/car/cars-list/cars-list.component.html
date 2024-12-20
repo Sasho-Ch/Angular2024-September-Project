@@ -2,11 +2,11 @@
   <div class="car-list">
     @for (car of cars; track $index) {
     <div class="list-item">
-      <a routerLink="/current-car">
+      <a [routerLink]="car._id">
         <div class="car-brand">{{ car.carBrand }}</div>
         <div class="carInfo">
           <p class="car-model">Model:<br />{{ car.carModel }}</p>
-          <p class="car-colour">Colour:<br />{{ car.carColor }}</p>
+          <p class="car-colour">Colour:<br />{{ car.carColour }}</p>
           <p class="car-year">Year:<br />{{ car.carYear }}</p>
           <p class="car-date">Published on:<br />{{ car.created_at | date : "yyyy-mm-dd"}}</p>
           <p class="car-owner">Owner:<br />{{car.userId.username}}</p>

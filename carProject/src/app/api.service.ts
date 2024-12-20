@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Car } from './types/car';
-import { environment } from '../environment/environment.development';
+import { Theme } from './types/theme';
 
 @Injectable({
   providedIn: 'root',
@@ -9,20 +8,17 @@ import { environment } from '../environment/environment.development';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  getCars() {
-    const {apiUrl} = environment;
-    return this.http.get<Car[]>(`${apiUrl}/cars`);
+  getThemes() {
+    return this.http.get<Theme[]>(`/api/themes`);
   }
 
-  getSingleCar(id:string) {
-    const {apiUrl} = environment;
-    return this.http.get<Car>(`${apiUrl}/cars/${id}`);
+  getSingleTheme(id:string) {
+    return this.http.get<Theme>(`/api/themes/${id}`)
   }
 
-  createCar(carBrand: string, carModel: string, carYear: string, carColour: string) {
-    const {apiUrl} = environment;
-    const payload = {carBrand, carModel, carYear, carColour};
+  createTheme(themeName: string, carBrand: string, carModel: string, carColour: string, carYear: string, postText: string) {
+    const payload = {themeName, carBrand, carModel, carColour, carYear, postText };
 
-    return this.http.post<Car>(`${apiUrl}/cars`, payload);
+    return this.http.post<Theme>(`/api/themes`, payload);
   }
 }

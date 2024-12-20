@@ -4,23 +4,92 @@
   </div>
 
   <div class="profile">
-    <h1>Username</h1>
-    <div class="photo">
-      <i class="fa-regular fa-user"></i>
-    </div>
-    <div class="userInfo">
-        <div class="infoGroup">
-            <i class="fa-solid fa-user"></i>
-            <p>Username</p>
+    @if(!isEditMode) {
+    <ng-container>
+      <h1>Username</h1>
+      <div class="photo">
+        <i class="fa-regular fa-user"></i>
+      </div>
+      <div class="userInfo">
+          <div class="infoGroup">
+              <i class="fa-solid fa-user"></i>
+              <p>{{profileDetails.username}}</p>
+          </div>
+          <div class="infoGroup">
+              <i class="fa-solid fa-envelope"></i>
+              <p>{{profileDetails.email}}</p>
+          </div><div class="infoGroup">
+              <i class="fa-solid fa-phone"></i>
+              <p>{{profileDetails.tel}}</p>
+          </div>
+      </div>
+      <button class="edit-button" (click)="toggleEditMode()">Edit</button>
+
+    </ng-container>
+  } @else {
+    <ng-container>
+      <form [formGroup]="form" (ngSubmit)="handleSaveProfile()">
+        <div class="editInfoGroup">
+          <p>Username:</p>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            value="Johny"
+            formControlName="username"
+          />
+
+          @if(form.get('username')?.touched) {
+          <div>
+            @if(form.get('username')?.errors?.['required']) {
+            <p class="error">Username is required!</p>
+            } @if(form.get('username')?.errors?.['minlength']) {
+            <p class="error">Username must be at least 5 characters!</p>
+            }
+          </div>
+          }
         </div>
-        <div class="infoGroup">
-            <i class="fa-solid fa-envelope"></i>
-            <p>Email</p>
-        </div><div class="infoGroup">
-            <i class="fa-solid fa-phone"></i>
-            <p>Phone Number</p>
+        <div class="editInfoGroup">
+          <p>Email:</p>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value="john.doe@gmail.com"
+            formControlName="email"
+          />
+
+          @if(form.get('email')?.touched) {
+          <div>
+            @if(form.get('email')?.errors?.['required']) {
+            <p class="error">Email is required!</p>
+            } @if(form.get('email')?.errors?.['emailValidator']) {
+            <p class="error">Email is not valid!</p>
+            }
+          </div>
+          }
         </div>
-    </div>
-    <button>Edit</button>
+        <div class="editInfoGroup">
+          <p>Phone:</p>
+            <input
+              type="text"
+              name="tel"
+              id="tel"
+              value="885 888 888"
+              formControlName="tel"
+            />
+        </div>
+        <button class="red-button" (click)="onCancel($event)">Cancel</button>
+        <button
+          class="green-button"
+          [disabled]="form.invalid"
+          [style]="{ backgroundColor: form.invalid ? 'grey' : '#5cb85c' }"
+        >
+          Save
+        </button>
+      </form>
+    </ng-container>
+    }
+
   </div>
 </div>

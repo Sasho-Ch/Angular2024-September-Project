@@ -8,17 +8,29 @@ import { CarsListComponent } from './car/cars-list/cars-list.component';
 import { AddCarComponent } from './car/add-car/add-car.component';
 import { AboutComponent } from './about/about.component';
 import { CurrentCarComponent } from './car/current-car/current-car.component';
+import { ErrorMsgComponent } from './core/error-msg/error-msg.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-    {path: '',redirectTo:'/home' , pathMatch: 'full'},
-    {path: 'home', component: HomeComponent},
-    {path: 'login', component: LoginComponent},
-    {path: 'register', component: RegisterComponent},
-    {path: 'profile', component: ProfileComponent},
-    {path: 'gallery', component: CarsListComponent},
-    {path: 'add-car', component: AddCarComponent},
-    {path: 'about', component: AboutComponent},
-    {path: 'current-car', component: CurrentCarComponent},
-    {path: 'error', component: ErrorComponent},
-    {path: '**', redirectTo: '/error'},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
+  {
+    path: 'gallery',
+    children: [
+      { path: '', component: CarsListComponent, canActivate: [AuthGuard] },
+      {
+        path: ':themeId',
+        component: CurrentCarComponent,
+        canActivate: [AuthGuard],
+      },
+    ],
+  },
+  { path: 'add-car', component: AddCarComponent, canActivate: [AuthGuard] },
+  { path: 'about', component: AboutComponent },
+  { path: 'error', component: ErrorMsgComponent },
+  { path: '404', component: ErrorComponent },
+  { path: '**', redirectTo: '/404' },
 ];

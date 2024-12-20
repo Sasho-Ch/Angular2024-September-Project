@@ -3,7 +3,7 @@
     <img src="/wallpaper.jpg" alt="" />
   </div>
 
-  <form class="login" action="">
+  <form class="login"  #form="ngForm" (ngSubmit)="login(form)">
     <h1>Login</h1>
     <fieldset>
       <p class="field">
@@ -13,10 +13,13 @@
           </span>
         </label>
         <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="john.doe@gmail.com"
+        type="email"
+        name="email"
+        id="email"
+        placeholder="john.doe@gmail.com"
+        ngModel
+        #inputEmail="ngModel"
+        required
         />
       </p>
       <p class="field">
@@ -26,10 +29,14 @@
           </span>
         </label>
         <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="john.doe@gmail.com"
+        type="password"
+        name="password"
+        id="password"
+        placeholder="******"
+        ngModel
+        #inputPassword="ngModel"
+        minlength="5"
+        required
         />
       </p>
       <button>Login</button>

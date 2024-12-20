@@ -3,7 +3,7 @@
       <img src="/wallpaper.jpg" alt="" />
     </div>
   
-    <form class="register" action="">
+    <form class="register" [formGroup]="form" (ngSubmit)="register()">
       <h1>Register</h1>
       <fieldset>
         <p class="field">
@@ -13,10 +13,11 @@
             </span>
           </label>
           <input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="username"
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Username"
+            formControlName="username"
           />
         </p>
         <p class="field">
@@ -29,7 +30,8 @@
             type="email"
             name="email"
             id="email"
-            placeholder="john.doe@gmail.com"
+            placeholder="Email"
+            formControlName="email"
           />
         </p>
         <p class="field">
@@ -39,10 +41,11 @@
               </span>
             </label>
             <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="john.doe@gmail.com"
+              type="text"
+              name="tel"
+              id="tel"
+              placeholder="Telephone"
+              formControlName="tel"
             />
           </p>
           <p class="field">
@@ -52,10 +55,11 @@
               </span>
             </label>
             <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="john.doe@gmail.com"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="password"
+              formControlName="password"
             />
           </p>
           <p class="field">
@@ -65,10 +69,11 @@
               </span>
             </label>
             <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="john.doe@gmail.com"
+              type="password"
+              name="rePassword"
+              id="rePassword"
+              placeholder="Repeat password"
+              formControlName="rePassword"
             />
           </p>
           
