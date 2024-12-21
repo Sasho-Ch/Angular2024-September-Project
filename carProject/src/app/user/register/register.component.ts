@@ -26,17 +26,19 @@ export class RegisterComponent {
     ]),
     email: new FormControl('', [Validators.required, emailValidator(DOMAINS)]),
     tel: new FormControl(''),
-
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(5),
-    ]),
-    rePassword: new FormControl('', [Validators.required]),
+    passGroup: new FormGroup({
+      password: new FormControl('', [Validators.required, Validators.minLength(5)]),
+      rePassword: new FormControl('', [Validators.required]),
+    },
+     {
+      validators: [matchPasswordsValidator('password', 'rePassword')]
+    }
+  ),
   });
 
   constructor(private userService: UserService, private router: Router) {}
 
-  isFieldTextMissing(controlName: string) {
+  isFieldTextMissing(controlName:string) {
     return (
       this.form.get(controlName)?.touched &&
       this.form.get(controlName)?.errors?.['required']
@@ -57,24 +59,21 @@ export class RegisterComponent {
   }
 
   get passGroup() {
-    return this.form.get('passGroup');
+    return this.form.get('passGroup')
   }
+
 
   register() {
     if (this.form.invalid) {
       return;
     }
 
-    const {
-      username,
-      email,
-      tel,
-      password, rePassword,
-    } = this.form.value;
-    this.userService
-      .register(username!, email!, tel!, password!, rePassword!)
-      .subscribe(() => {
-        this.router.navigate(['/gallery']);
-      });
+    const {username, email, tel, passGroup: {password, rePassword} = {},} = this.form.value;
+    this.userService.register(username!, email!, tel!, password!, rePassword!)
+    .subscribe(() => {
+
+      this.router.navigate(['/gallery'])
+    })
   }
+
 }

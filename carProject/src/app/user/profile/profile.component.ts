@@ -65,4 +65,6 @@ export class ProfileComponent {
     event.preventDefault();
     this.toggleEditMode()
   }
+
+  
 }

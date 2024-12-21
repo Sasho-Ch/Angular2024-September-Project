@@ -5,7 +5,7 @@
     top: 8%;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-style: italic;
     text-decoration: underline;
     box-shadow: 0 5px 10px rgb(204, 204, 204);
@@ -13,7 +13,7 @@
 }
 
 .error-message {
-    background-color: rgba(238, 74, 74, 0.699);
+    background-color: rgba(255, 153, 0, 0.951);
 }
 
 .success-message {

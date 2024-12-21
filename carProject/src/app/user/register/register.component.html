@@ -7,7 +7,7 @@
       <h1>Register</h1>
       <fieldset>
         <p class="field">
-          <label for="email">
+          <label for="username">
             <span>
                 <i class="fa-solid fa-user"></i>
             </span>
@@ -60,7 +60,7 @@
             }
         </p>
         <p class="field">
-            <label for="email">
+            <label for="tel">
               <span>
                 <i class="fa-solid fa-phone"></i>
               </span>
@@ -73,8 +73,9 @@
               formControlName="tel"
             />
           </p>
+          <div formGroupName="passGroup">
           <p class="field">
-            <label for="email">
+            <label for="password">
               <span>
                 <i class="fas fa-lock"></i>
               </span>
@@ -102,7 +103,7 @@
               }
           </p>
           <p class="field">
-            <label for="email">
+            <label for="rePassword">
               <span>
                 <i class="fas fa-lock"></i>
               </span>
@@ -129,6 +130,7 @@
               </div>
               }
           </p>
+        </div>
           
         <button>Register</button>
         <p class="text">Already have an account? <a routerLink="/login">Login</a></p>
