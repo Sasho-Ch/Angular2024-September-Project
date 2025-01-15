@@ -24,7 +24,7 @@ export const routes: Routes = [
       {
         path: ':themeId',
         component: CurrentCarComponent,
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
       },
     ],
   },

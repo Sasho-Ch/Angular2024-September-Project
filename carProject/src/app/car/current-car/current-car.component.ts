@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { ApiService } from '../../api.service';
 import { UserService } from '../../user/user.service';
 import { Theme } from '../../types/theme';
@@ -16,7 +16,8 @@ export class CurrentCarComponent{
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router,
   ) {}
 
   get isLoggedIn():boolean {
@@ -32,5 +33,13 @@ export class CurrentCarComponent{
     this.apiService.getSingleTheme(id).subscribe((theme) => {
       this.car = theme;
     });
+  }
+
+  delete() {
+    const id = this.car._id;
+    this.apiService.deleteTheme(id).subscribe((theme) => {
+      this.car = theme;
+    });
+    this.router.navigate(['/gallery'])
   }
 }

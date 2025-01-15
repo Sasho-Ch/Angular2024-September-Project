@@ -21,4 +21,8 @@ export class ApiService {
 
     return this.http.post<Theme>(`/api/themes`, payload);
   }
+
+  deleteTheme(id:string) {
+    return this.http.delete<Theme>(`/api/themes/${id}`)
+  }
 }
